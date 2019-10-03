@@ -41,6 +41,12 @@ public struct LayoutArrangement {
     public func makeViews(in view: View? = nil, direction: UserInterfaceLayoutDirection = .leftToRight) -> View {
         return makeViews(in: view, direction: direction, prepareAnimation: false)
     }
+    
+    public func fetchExistingView(fromView view: View, byViewReuseId reuseId: String) -> View? {
+        let recycler = ViewRecycler(rootView: view)
+        
+        return recycler.fetchExistingView(byViewReuseId: reuseId)
+    }
 
     /**
      Prepares the view to be animated to this arrangement.
