@@ -116,6 +116,10 @@ class ViewRecycler {
     func markViewsAsRoot(_ views: [View]) {
         views.forEach { $0.type = .root }
     }
+    
+    func fetchExistingView(byViewReuseId reuseId: String) -> View? {
+        return self.viewsById[reuseId]
+    }
 }
 
 private var viewReuseIdKey: UInt8 = 0
